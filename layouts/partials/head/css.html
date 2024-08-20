@@ -1,5 +1,5 @@
 {{- with resources.Get "scss/main.scss" }}
-  {{- $toCssOpt := dict "transpiler" "libsass" "targetPath" "assets/css/style.css" }}
+  {{- $toCssOpt := dict "transpiler" "libsass" "targetPath" "assets/css/style.css" "includePaths" (slice "assets/scss/bootstrap/") }}
   {{- $css := . | toCSS $toCssOpt }}
   {{- if eq hugo.Environment "development" }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
